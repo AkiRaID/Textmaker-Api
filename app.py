@@ -49,8 +49,7 @@ def makerr2():
         image = open('gambar.jpg', 'rb')
         image_read = image.read()
         image_64_encode = base64.encodebytes(image_read)
-        js = request.args('image_64_encode')
-        return js
+        return send_file(image_64_encode, mimetype="image/jpeg")
 
 @app.route('/api/textmaker3', methods=['GET'])
 def makerr3():
