@@ -63,19 +63,7 @@ def makerr3():
         image = open('gambar.jpg', 'rb')
         image_read = image.read()
         image_64_encode = base64.encodebytes(image_read)
-        url = 'https://api.imgbb.com/1/upload'
-        par = {
-         'key':'761ea2d5575581057a799d14e9c78e28',
-         'image':image_64_encode,
-         'name':'support zahirr',
-         'expiration': 60
-         }
-        headers = {
-         'Accept': 'application/json'
-         }
-        req = requests.post(image_64_encode, headers=headers)
-        p = req.json()['display_url']
-        return send_file(p, mimetype="image/jpeg")
+        return image_64_encode
 
 @app.route('/api/textmaker4', methods=['GET'])
 def makerr4():
