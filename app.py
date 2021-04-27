@@ -35,6 +35,7 @@ def makerr():
         req = requests.post(url,data=par, headers=headers)
         p = req.json()['data']['display_url']
         js = {
+         "creator":akira
          "results":p
          }
         return js
