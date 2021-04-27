@@ -103,20 +103,7 @@ def makerr4():
         image = open('gambar.jpg', 'rb')
         image_read = image.read()
         image_64_encode = base64.encodebytes(image_read)
-        url = 'https://api.imgbb.com/1/upload'
-        par = {
-         'key':'761ea2d5575581057a799d14e9c78e28',
-         'image':image_64_encode,
-         'name':'support zahirr',
-         'expiration': 60
-         }
-        headers = {
-         'Accept': 'application/json'
-         }
-        req = requests.post(url,data=par, headers=headers)
-        p = req.json()['data']['display_url']
-        js = requests.get(p)
-        return send_file(js, mimetype="image/jpeg")
+        return send_file(image_64_encode, mimetype="image/jpeg")
 
 @app.route('/api/text3d', methods=['GET'])
 def tigadimensi():
