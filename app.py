@@ -60,7 +60,7 @@ def makerr2():
          'Accept': 'application/json'
          }
         req = requests.post(url,data=par, headers=headers)
-        p = req.json()['data']['display_url']
+        p = req.json()['display_url']
         js = {
          "results":p
          }
