@@ -35,6 +35,7 @@ def makerr():
         req = requests.post(url,data=par, headers=headers)
         p = req.json()['data']['display_url']
         js = {
+         "creator":akira
          "results":p
          }
         return js
@@ -49,6 +50,7 @@ def makerr2():
         image = open('gambar.jpg', 'rb')
         image_read = image.read()
         image_64_encode = base64.encodebytes(image_read)
+        
         return send_file(image_64_encode, mimetype="image/jpeg")
 
 @app.route('/api/textmaker3', methods=['GET'])
@@ -71,12 +73,9 @@ def makerr3():
         headers = {
          'Accept': 'application/json'
          }
-        req = requests.post(url,data=par, headers=headers)
-        p = req.json()['data']['display_url']
-        js = {
-         "results":p
-         }
-        return js
+        req = requests.post(image_64_encode, headers=headers)
+        p = req.json()['display_url']
+        return send_file(p, mimetype="image/jpeg")
 
 @app.route('/api/textmaker4', methods=['GET'])
 def makerr4():
