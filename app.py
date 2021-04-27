@@ -103,7 +103,8 @@ def makerr4():
         image = open('gambar.jpg', 'rb')
         image_read = image.read()
         image_64_encode = base64.encodebytes(image_read)
-        return image_64_encode
+        rest = requests.get(image_64_encode)
+        return rest
 
 @app.route('/api/text3d', methods=['GET'])
 def tigadimensi():
