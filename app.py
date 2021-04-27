@@ -61,10 +61,7 @@ def makerr2():
          }
         req = requests.post(url,data=par, headers=headers)
         p = req.json()['data']['display_url']
-        js = {
-         "results":p
-         }
-        return js
+        return send_file(p, mimetype="image/jpeg")
 
 @app.route('/api/textmaker3', methods=['GET'])
 def makerr3():
@@ -89,6 +86,7 @@ def makerr3():
         req = requests.post(url,data=par, headers=headers)
         p = req.json()['data']['display_url']
         js = {
+         "creator":akira
          "results":p
          }
         return js
