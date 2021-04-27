@@ -50,8 +50,7 @@ def makerr2():
         image = open('gambar.jpg', 'rb')
         image_read = image.read()
         image_64_encode = base64.encodebytes(image_read)
-        
-        return send_file(image_64_encode, mimetype="image/jpeg")
+        return image_64_encode
 
 @app.route('/api/textmaker3', methods=['GET'])
 def makerr3():
