@@ -50,7 +50,23 @@ def makerr2():
         image = open('gambar.jpg', 'rb')
         image_read = image.read()
         image_64_encode = base64.encodebytes(image_read)
-        return image_64_encode
+        url = 'https://api.imgbb.com/1/upload'
+        par = {
+         'key':'761ea2d5575581057a799d14e9c78e28',
+         'image':image_64_encode,
+         'name':'support zahirr',
+         'expiration': 60
+         }
+        headers = {
+         'Accept': 'application/json'
+         }
+        req = requests.post(url,data=par, headers=headers)
+        p = req.json()['data']['display_url']
+        js = {
+         "creator":akira
+         "results":p
+         }
+        return js
 
 @app.route('/api/textmaker3', methods=['GET'])
 def makerr3():
@@ -62,7 +78,23 @@ def makerr3():
         image = open('gambar.jpg', 'rb')
         image_read = image.read()
         image_64_encode = base64.encodebytes(image_read)
-        return image_64_encode
+        url = 'https://api.imgbb.com/1/upload'
+        par = {
+         'key':'761ea2d5575581057a799d14e9c78e28',
+         'image':image_64_encode,
+         'name':'support zahirr',
+         'expiration': 60
+         }
+        headers = {
+         'Accept': 'application/json'
+         }
+        req = requests.post(url,data=par, headers=headers)
+        p = req.json()['data']['display_url']
+        js = {
+         "creator":akira
+         "results":p
+         }
+        return js
 
 @app.route('/api/textmaker4', methods=['GET'])
 def makerr4():
