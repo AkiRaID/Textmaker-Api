@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, send_file, io
 import requests
 from bs4 import BeautifulSoup as bs
 import json, base64
@@ -115,10 +115,8 @@ def makerr4():
          }
         req = requests.post(url,data=par, headers=headers)
         p = req.json()['data']['display_url']
-        js = {
-         "results":p
-         }
-        return js
+        js = requests.get(p)
+        return send_file(js, mimetype="image/jpeg")
 
 @app.route('/api/text3d', methods=['GET'])
 def tigadimensi():
